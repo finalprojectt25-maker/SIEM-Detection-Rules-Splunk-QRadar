@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-001",
+  "rule_name": "Windows - Multiple Failed Logins (Brute Force)",
+  "severity": "High",
+  "search_query": "index=windows EventCode=4625 | stats count as failure_count by src_ip, TargetUserName | where failure_count > 10",
+  "description": "Detects more than 10 failed login attempts within a short period from a single source, indicating a potential Brute Force attack.",
+  "mitre_id": "T1110.001",
+  "category": "Credential Access",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_auth_brute_force.yml",
+  "status": "Production"
+}
