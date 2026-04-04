@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-010",
+  "rule_name": "Lateral Movement - PsExec Process Execution",
+  "severity": "High",
+  "search_query": "index=windows (process_name=\"psexec.exe\" OR ServiceName=\"PSEXESVC\") | table _time, Computer, User, process_name, command_line | rename process_name as \"Tool_Name\", command_line as \"Remote_Command\"",
+  "description": "Detects the execution of PsExec or the creation of the PsExec service. Attackers use this tool to execute commands on remote systems and move laterally within the network to gain more control.",
+  "mitre_id": "T1570",
+  "category": "Lateral Movement",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_psexec_execution.yml",
+  "status": "Production"
+}
