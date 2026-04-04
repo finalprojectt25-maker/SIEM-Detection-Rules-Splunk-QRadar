@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-008",
+  "rule_name": "Persistence - New Scheduled Task Created",
+  "severity": "Medium",
+  "search_query": "index=windows EventCode=4698 | table _time, Computer, User, TaskName, Command | rename TaskName as \"Scheduled_Task\", Command as \"Payload\"",
+  "description": "Detects the creation of a new scheduled task on a Windows system. Attackers frequently use scheduled tasks to maintain persistence, allowing their malicious code to execute at specific times or upon system startup.",
+  "mitre_id": "T1053.005",
+  "category": "Persistence",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_scheduled_task_creation.yml",
+  "status": "Production"
+}
