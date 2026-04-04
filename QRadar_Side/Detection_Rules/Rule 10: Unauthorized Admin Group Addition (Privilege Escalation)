@@ -1,0 +1,14 @@
+# Rule 10: Unauthorized User Added to Privileged Group
+# --------------------------------------------------
+# Description: Detects when a user account is added to a sensitive security group 
+# like 'Administrators', 'Domain Admins', or 'Enterprise Admins'.
+# 
+# MITRE ATT&CK: T1078.002 (Valid Accounts: Domain Accounts)
+# Severity: High
+# 
+# Logic (Sigma-style):
+#   - EventID: 4732 (A member was added to a security-enabled local group)
+#   - TargetGroupName: 'Administrators'
+#   - EventID: 4728 (A member was added to a security-enabled global group)
+# 
+# Log Source: Windows Security Log (Account Management)
