@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-007",
+  "rule_name": "Privilege Escalation - User Added to Local Administrators Group",
+  "severity": "High",
+  "search_query": "index=windows EventCode=4732 | table _time, Computer, TargetUserName, MemberName, SubjectUserName | rename MemberName as \"Added_User\", SubjectUserName as \"Performed_By\"",
+  "description": "Detects when a user account is added to the local Administrators group. Unauthorized granting of administrative privileges is a major indicator of an attacker attempting to gain full control over a system.",
+  "mitre_id": "T1078.002",
+  "category": "Privilege Escalation",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_user_added_to_local_administrators.yml",
+  "status": "Production"
+}
