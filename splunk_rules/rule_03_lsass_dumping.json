@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-003",
+  "rule_name": "Windows - Credential Dumping via LSASS Memory Access",
+  "severity": "Critical",
+  "search_query": "index=windows source=\"XmlWinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=10 TargetImage=\"C:\\\\Windows\\\\system32\\\\lsass.exe\" (GrantedAccess=\"0x1fffff\" OR GrantedAccess=\"0x1010\") | table _time, Computer, SourceImage, TargetImage, GrantedAccess, SourceProcessId",
+  "description": "Detects attempts to access the memory of the Local Security Authority Subsystem Service (LSASS). Attackers dump LSASS memory to steal cleartext passwords, NTLM hashes, and Kerberos tickets (e.g., using Mimikatz).",
+  "mitre_id": "T1003.001",
+  "category": "Credential Access",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_access/proc_access_win_lsass_memdump.yml",
+  "status": "Production"
+}
