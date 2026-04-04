@@ -1,15 +1,9 @@
-# Rule 6: Ransomware-Like File Modification
-# --------------------------------------------------
-# Description: Detects rapid file modification or renaming to known ransomware extensions 
-# within a short period. This rule focuses on data encryption behavior.
-# 
-# MITRE ATT&CK: T1486 (Data Encrypted for Impact)
-# Severity: Critical
-# 
-# Logic (Behavioral):
-#   - EventID: 4663 (An attempt was made to access an object)
-#   - AccessMask: 0x2 (WriteData / AddFile)
-#   - Extension matches: ('.locky', '.encrypted', '.crypt', '.crypted', '.wannacry')
-#   - Threshold: Count > 50 events within 1 minute from the same Source User.
-# 
-# Log Source: Windows Security Log (Object Access: File System)
+{
+  "name": "Rule 6: Ransomware-Like File Modification",
+  "description": "Detects rapid file modification or renaming to known ransomware extensions.",
+  "severity": 10,
+  "enabled": true,
+  "mitre_id": "T1486",
+  "logic": "EventID: 4663 AND AccessMask: 0x2 AND Extension: ('.locky', '.encrypted', '.crypt', '.wannacry') AND Threshold: >50 events/min",
+  "log_source": "Windows Security Log (Object Access)"
+}
