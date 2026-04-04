@@ -1,0 +1,6 @@
+# Rule 1: Brute Force Detection
+# Purpose: Detects a successful login after multiple failures from the same source IP.
+# Log Source: Microsoft Windows Security Event Log
+# Logic: (EventID = 4625 occurs >= 5 times) FOLLOWED BY (EventID = 4624) within 5 minutes.
+# Mitigation: Check source IP and disable compromised account if necessary.
+# Status: Development
