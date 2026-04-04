@@ -1,0 +1,14 @@
+# Rule 9: Windows Event Log Clearing
+# --------------------------------------------------
+# Description: Detects the deletion or clearing of Windows Event Logs using 
+# wevtutil.exe or PowerShell, typically done by attackers to hide their activities.
+# 
+# MITRE ATT&CK: T1070.001 (Indicator Removal: Clear Windows Event Logs)
+# Severity: Critical
+# 
+# Logic (Sigma-style):
+#   - EventID: 1102 (The audit log was cleared) OR 104 (System log was cleared)
+#   - ProcessName: 'wevtutil.exe' AND CommandLine contains 'cl'
+#   - PowerShell: 'Clear-EventLog' or 'Remove-EventLog'
+# 
+# Log Source: Windows Security Log / System Log
