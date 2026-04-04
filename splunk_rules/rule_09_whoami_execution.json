@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-009",
+  "rule_name": "Discovery - Suspicious Whoami Execution",
+  "severity": "Low",
+  "search_query": "index=windows process_name=\"whoami.exe\" | table _time, Computer, User, command_line | rename command_line as \"Recon_Command\"",
+  "description": "Detects the execution of whoami.exe. While a simple command, it is one of the most common tools used by attackers for initial reconnaissance to identify current user privileges after a breach.",
+  "mitre_id": "T1033",
+  "category": "Discovery",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_whoami.yml",
+  "status": "Production"
+}
