@@ -1,9 +1,10 @@
-{{
-  "name": "Rule 2: Suspicious PowerShell Execution",
-  "description": "Detects execution of encoded PowerShell commands often used by attackers.",
-  "severity": 7,
+{
+  "name": "Rule 1: Brute Force Detection",
+  "description": "Detects a successful login after multiple failures from the same source IP.",
+  "severity": 5,
   "enabled": true,
-  "mitre_id": "T1059.001",
-  "logic": "ProcessName = 'powershell.exe' AND (CommandLine contains '-enc' OR CommandLine contains '-EncodedCommand')",
-  "log_source": "Microsoft-Windows-Sysmon (Event ID 1)"
+  "type": "EVENT",
+  "log_source": "Microsoft Windows Security Event Log",
+  "logic": "EventID = 4625 occurs >= 5 times FOLLOWED BY EventID = 4624 within 5 minutes.",
+  "mitigation": "Check source IP and disable compromised account if necessary."
 }
