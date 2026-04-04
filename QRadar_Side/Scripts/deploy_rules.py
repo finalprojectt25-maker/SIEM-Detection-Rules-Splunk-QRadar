@@ -3,7 +3,7 @@ import json
 
 # Connection Details
 QRADAR_IP = "13.50.16.252"
-API_TOKEN = "YOUR_TOKEN_HERE" # Bura bayaq aldigin tokeni qoyacaqsan
+API_TOKEN = "9aba895b-9bee-47f4-9e63-e9b99f8ddc58" # Bura bayaq aldigin tokeni qoyacaqsan
 
 def deploy_rules_to_siem():
     print(f"Connecting to QRadar at {QRADAR_IP}...")
