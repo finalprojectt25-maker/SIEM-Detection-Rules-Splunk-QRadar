@@ -1,7 +1,9 @@
-# Rule 3: LSASS Memory Dumping
-# Purpose: Detects attempts to dump LSASS memory to steal credentials.
-# Log Source: Microsoft Windows Security Event Log (via Sysmon)
-# Event ID: 10 (ProcessAccess)
-# Logic: TargetImage contains 'lsass.exe' AND GrantedAccess = '0x1010' or '0x1fffff'
-# MITRE: Credential Access (T1003.001)
-# Status: Development
+{
+  "name": "Rule 3: LSASS Memory Dumping",
+  "description": "Detects attempts to dump LSASS memory to steal credentials.",
+  "severity": 10,
+  "enabled": true,
+  "mitre_id": "T1003.001",
+  "logic": "TargetImage contains 'lsass.exe' AND GrantedAccess = '0x1010' or '0x1fffff'",
+  "log_source": "Microsoft-Windows-Sysmon (Event ID 10)"
+}
