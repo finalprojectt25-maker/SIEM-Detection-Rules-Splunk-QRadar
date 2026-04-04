@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-015",
+  "rule_name": "Credential Access - Potential Kerberoasting Attack",
+  "severity": "High",
+  "search_query": "index=windows EventCode=4769 TicketOptions=\"0x40810000\" TicketEncryptionType=\"0x17\" | table _time, Computer, TargetUserName, ServiceName, IpAddress | rename TargetUserName as \"Potential_Attacker\", ServiceName as \"Target_Service\"",
+  "description": "Detects Kerberos Service Ticket requests using RC4 encryption (0x17). This is a strong indicator of a Kerberoasting attack, where an attacker requests service tickets to crack the service account passwords offline.",
+  "mitre_id": "T1558.003",
+  "category": "Credential Access",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_kerberoasting.yml",
+  "status": "Production"
+}
