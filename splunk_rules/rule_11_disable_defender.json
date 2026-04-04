@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-011",
+  "rule_name": "Defense Evasion - Disabling Windows Defender via PowerShell",
+  "severity": "High",
+  "search_query": "index=windows process_name=\"powershell.exe\" command_line=\"*Set-MpPreference*\" command_line=\"*-DisableRealtimeMonitoring $true*\" | table _time, Computer, User, process_name, command_line | rename command_line as \"Evasion_Command\"",
+  "description": "Detects attempts to disable Windows Defender real-time monitoring using PowerShell. This is a common defense evasion technique used by attackers to execute malicious code without being blocked by antivirus.",
+  "mitre_id": "T1562.001",
+  "category": "Defense Evasion",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_disable_windefender.yml",
+  "status": "Production"
+}
