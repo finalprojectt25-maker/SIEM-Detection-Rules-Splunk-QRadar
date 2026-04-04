@@ -1,0 +1,7 @@
+# Rule 2: Suspicious PowerShell Execution
+# Purpose: Detects execution of encoded PowerShell commands often used by attackers.
+# Log Source: Microsoft Windows Security Event Log (via Sysmon)
+# Event ID: 1 (Process Creation)
+# Logic: ProcessName = 'powershell.exe' AND (CommandLine contains '-enc' OR CommandLine contains '-EncodedCommand')
+# MITRE: Execution (T1059.001)
+# Status: Development
