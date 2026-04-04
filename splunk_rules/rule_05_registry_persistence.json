@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-005",
+  "rule_name": "Windows - Persistence via Registry Run Key Modification",
+  "severity": "Medium",
+  "search_query": "index=windows source=\"XmlWinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=13 (TargetObject=\"*\\\\CurrentVersion\\\\Run*\" OR TargetObject=\"*\\\\CurrentVersion\\\\RunOnce*\") | table _time, Computer, User, Image, TargetObject, Details | rename Image as \"Malware_Path\", Details as \"Payload_Executed\"",
+  "description": "Detects modifications to Windows Registry 'Run' or 'RunOnce' keys. Attackers use these keys to ensure their malware executes automatically every time the system starts or a user logs in.",
+  "mitre_id": "T1547.001",
+  "category": "Persistence",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set_asep_reg_keys_modification.yml",
+  "status": "Production"
+}
