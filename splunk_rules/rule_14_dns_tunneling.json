@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-014",
+  "rule_name": "Network - Potential DNS Tunneling for Data Exfiltration",
+  "severity": "High",
+  "search_query": "index=network sourcetype=dns | eval query_length=len(query) | where query_length > 100 | stats count by src_ip, query | where count > 10 | rename query_length as \"DNS_Payload_Size\"",
+  "description": "Detects unusually long DNS queries (over 100 characters) originating from the same source. Attackers use DNS tunneling to bypass network security controls and exfiltrate sensitive data or establish C2 channels.",
+  "mitre_id": "T1048.003",
+  "category": "Exfiltration",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/network/dns/net_dns_tunnelling_potential.yml",
+  "status": "Production"
+}
