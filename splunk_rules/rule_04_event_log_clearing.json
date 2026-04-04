@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-004",
+  "rule_name": "Windows - Security and System Event Logs Cleared",
+  "severity": "High",
+  "search_query": "index=windows (EventCode=1102 OR EventCode=104) | table _time, Computer, User, EventCode, Message | rename EventCode as \"Action_ID\", Message as \"Log_Details\"",
+  "description": "Detects when a user or process clears the Windows Security or System event logs. This is a common anti-forensic technique used by attackers to hide their activity.",
+  "mitre_id": "T1070.001",
+  "category": "Defense Evasion",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_log_cleared.yml",
+  "status": "Production"
+}
