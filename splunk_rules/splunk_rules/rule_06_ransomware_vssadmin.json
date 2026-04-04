@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-006",
+  "rule_name": "Impact - Ransomware Shadow Copy Deletion via Vssadmin",
+  "severity": "Critical",
+  "search_query": "index=windows process_name=\"vssadmin.exe\" command_line=\"*delete*\" command_line=\"*shadows*\" | table _time, Computer, User, process_name, command_line",
+  "description": "Detects the use of vssadmin.exe to delete Volume Shadow Copies. This is a classic signature move by ransomware families to prevent data recovery before encryption starts.",
+  "mitre_id": "T1490",
+  "category": "Impact",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_vssadmin_delete_shadow_copies.yml",
+  "status": "Production"
+}
