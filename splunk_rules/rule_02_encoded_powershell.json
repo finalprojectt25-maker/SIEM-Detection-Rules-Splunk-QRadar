@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-002",
+  "rule_name": "Windows - Suspicious Encoded PowerShell Execution",
+  "severity": "High",
+  "search_query": "index=windows (process_name=\"powershell.exe\" OR process_name=\"pwsh.exe\") (command_line=\"*-enc*\" OR command_line=\"*-EncodedCommand*\" OR command_line=\"*-e *\") | table _time, Computer, User, process_name, command_line",
+  "description": "Detects the execution of PowerShell with encoded commands. Attackers use this technique to obfuscate malicious scripts and bypass security filters.",
+  "mitre_id": "T1059.001",
+  "category": "Execution",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_encoded_cmdline.yml",
+  "status": "Production"
+}
