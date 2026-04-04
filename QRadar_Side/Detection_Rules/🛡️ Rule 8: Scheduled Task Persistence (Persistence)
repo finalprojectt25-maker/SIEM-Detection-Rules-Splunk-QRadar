@@ -1,0 +1,14 @@
+# Rule 8: Suspicious Scheduled Task Creation
+# --------------------------------------------------
+# Description: Detects the creation of a new scheduled task that points to 
+# suspicious directories like \Windows\Temp or \Users\Public, a common persistence method.
+# 
+# MITRE ATT&CK: T1053.005 (Scheduled Task/Job: Scheduled Task)
+# Severity: Medium
+# 
+# Logic (Sigma-style):
+#   - EventID: 4698 (A scheduled task was created)
+#   - Command contains: ('\Temp\', '\Public\', 'powershell.exe', 'cmd.exe')
+#   - Action: Register / Create
+# 
+# Log Source: Windows Security Log (Object Access: Task Scheduler)
