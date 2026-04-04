@@ -1,14 +1,9 @@
-# Rule 7: Sticky Keys Backdoor Detection (Image File Execution Options)
-# --------------------------------------------------
-# Description: Detects the replacement of legitimate accessibility tools (sethc.exe, utilman.exe) 
-# with the Windows Command Processor (cmd.exe) to maintain persistence.
-# 
-# MITRE ATT&CK: T1546.008 (Event Triggered Execution: Accessibility Features)
-# Severity: High
-# 
-# Logic (Sigma-style):
-#   - Image: 'C:\Windows\System32\sethc.exe' OR 'C:\Windows\System32\utilman.exe'
-#   - ParentImage: 'C:\Windows\System32\winlogon.exe' (Anomalous behavior)
-#   - Registry Key: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options'
-# 
-# Log Source: Microsoft-Windows-Sysmon (Event ID 1: Process Creation) OR Windows Security Log (4688)
+{
+  "name": "Rule 7: Sticky Keys Backdoor Detection",
+  "description": "Detects replacement of accessibility tools with cmd.exe for persistence.",
+  "severity": 8,
+  "enabled": true,
+  "mitre_id": "T1546.008",
+  "logic": "Image: ('sethc.exe' OR 'utilman.exe') AND ParentImage: 'winlogon.exe' AND Registry: 'Image File Execution Options'",
+  "log_source": "Sysmon (1) or Windows Security Log (4688)"
+}
