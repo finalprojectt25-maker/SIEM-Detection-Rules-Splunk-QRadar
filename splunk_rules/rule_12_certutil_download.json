@@ -1,0 +1,11 @@
+{
+  "rule_id": "SPL-012",
+  "rule_name": "Windows - Suspicious File Download via Certutil",
+  "severity": "Medium",
+  "search_query": "index=windows (process_name=\"certutil.exe\" OR Image=\"*\\\\certutil.exe\") (command_line=\"*-urlcache*\" OR command_line=\"*-split*\") | table _time, Computer, User, process_name, command_line | rename command_line as \"Download_Command\"",
+  "description": "Detects the usage of certutil.exe to download files from the internet. Attackers use this built-in Windows tool to bypass security filters and download malicious payloads.",
+  "mitre_id": "T1105",
+  "category": "Command and Control",
+  "reference_source": "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_certutil_download.yml",
+  "status": "Production"
+}-
