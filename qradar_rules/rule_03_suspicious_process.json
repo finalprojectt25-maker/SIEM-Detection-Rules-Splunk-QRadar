@@ -1,0 +1,13 @@
+{
+  "name": "MilliSec - Suspicious Process Execution",
+  "description": "Sysmon vasitəsilə şübhəli proseslərin (cmd, whoami) işə düşməsini izləyir.",
+  "severity": 6,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000025 AND \"Event ID\" = 1 AND (Image ILIKE '%whoami.exe%' OR Image ILIKE '%cmd.exe%')"
+    }
+  ],
+  "mttd_target": "3 mins",
+  "status": "enabled"
+}
