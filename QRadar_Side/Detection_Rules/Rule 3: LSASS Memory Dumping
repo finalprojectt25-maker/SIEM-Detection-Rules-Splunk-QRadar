@@ -1,0 +1,11 @@
+{
+  "rule_id": "QR-003",
+  "name": "Rule 3: LSASS Memory Dumping",
+  "description": "Detects attempts to dump LSASS memory to steal credentials.",
+  "severity": 10,
+  "enabled": true,
+  "mitre_id": "T1003.001",
+  "log_source": "Microsoft-Windows-Sysmon (Event ID 10)",
+  "logic": "TargetImage contains 'lsass.exe' AND (GrantedAccess = '0x1010' OR GrantedAccess = '0x1fffff')",
+  "mitigation": "Isolate the host immediately as credential dumping is a high-critical alert."
+}
