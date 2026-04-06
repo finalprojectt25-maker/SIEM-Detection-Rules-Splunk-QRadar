@@ -1,9 +1,10 @@
 {
+  "rule_id": "QR-008",
   "name": "Rule 8: Suspicious Scheduled Task Creation",
   "description": "Detects creation of scheduled tasks pointing to suspicious directories like Temp or Public.",
   "severity": 5,
   "enabled": true,
   "mitre_id": "T1053.005",
-  "logic": "EventID: 4698 AND Command contains ('\\Temp\\', '\\Public\\', 'powershell.exe', 'cmd.exe')",
-  "log_source": "Windows Security Log (Task Scheduler)"
+  "log_source": "Windows Security Log (Task Scheduler)",
+  "logic": "EventID: 4698 AND Command contains ('\\Temp\\', '\\Public\\', 'powershell.exe', 'cmd.exe')"
 }
