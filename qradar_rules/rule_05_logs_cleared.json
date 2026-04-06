@@ -1,0 +1,12 @@
+{
+  "name": "SOC - Security Audit Logs Cleared",
+  "description": "Təhlükəsizlik loglarının silinməsini aşkarlayır (Event ID 1102).",
+  "severity": 9,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000005 AND \"Event ID\" = 1102"
+    }
+  ],
+  "mttd_target": "1 min"
+}
