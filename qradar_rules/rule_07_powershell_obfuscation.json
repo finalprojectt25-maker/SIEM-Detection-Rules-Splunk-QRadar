@@ -1,0 +1,12 @@
+{
+  "name": "SOC - Suspicious Encoded PowerShell",
+  "description": "PowerShell-də -EncodedCommand və ya -e parametrinin istifadəsini tutur.",
+  "severity": 7,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000025 AND (CommandLine ILIKE '%-enc%' OR CommandLine ILIKE '%-EncodedCommand%')"
+    }
+  ],
+  "mttd_target": "5 mins"
+}
