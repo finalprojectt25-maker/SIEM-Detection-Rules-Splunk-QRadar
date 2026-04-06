@@ -1,9 +1,11 @@
 {
+  "rule_id": "QR-004",
   "name": "Rule 4: Suspicious Certutil Web Download",
   "description": "Detects the use of certutil.exe to download files from a remote URL to bypass filters.",
   "severity": 6,
   "enabled": true,
   "mitre_id": "T1105",
+  "log_source": "Windows Security Log (4688) or Sysmon (1)",
   "logic": "Image = 'certutil.exe' AND CommandLine contains ('-urlcache', '-f', '-split')",
-  "log_source": "Windows Security Log (4688) or Sysmon (1)"
+  "mitigation": "Review the URL from which the file was downloaded and check for malicious payloads."
 }
