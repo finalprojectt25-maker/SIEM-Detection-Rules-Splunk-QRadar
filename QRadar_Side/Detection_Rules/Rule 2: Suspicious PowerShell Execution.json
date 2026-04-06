@@ -7,5 +7,5 @@
   "mitre_id": "T1059.001",
   "log_source": "Microsoft-Windows-Sysmon (Event ID 1)",
   "logic": "ProcessName = 'powershell.exe' AND (CommandLine contains '-enc' OR CommandLine contains '-EncodedCommand')",
-  "mitigation": "Investigate the decoded command and identify the source process." [cite: 9]
+  "mitigation": "Investigate the decoded command and identify the source process."
 }
