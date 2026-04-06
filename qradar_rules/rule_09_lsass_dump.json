@@ -1,0 +1,12 @@
+{
+  "name": "SOC - LSASS Memory Access (Mimikatz)",
+  "description": "LSASS prosesinə şübhəli giriş cəhdini aşkarlayır (Credential Dumping).",
+  "severity": 10,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000025 AND \"Event ID\" = 10 AND TargetImage ILIKE '%lsass.exe%'"
+    }
+  ],
+  "mttd_target": "1 min"
+}
