@@ -1,0 +1,12 @@
+{
+  "name": "SOC - New Service Created (Persistence)",
+  "description": "Sistemdə yeni bir servisin quraşdırılmasını izləyir (Event ID 4697).",
+  "severity": 6,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000010 AND \"Event ID\" = 4697"
+    }
+  ],
+  "mttd_target": "10 mins"
+}
