@@ -1,0 +1,16 @@
+{
+  "name": "SOC - Brute Force Detection",
+  "description": "Eyni mənbədən 5 dəqiqə ərzində 10-dan çox uğursuz giriş cəhdi.",
+  "severity": 6,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000001 AND \"Event ID\" = 4625"
+    }
+  ],
+  "threshold": {
+    "count": 10,
+    "time_window": "300"
+  },
+  "mttd_target": "5 mins"
+}
