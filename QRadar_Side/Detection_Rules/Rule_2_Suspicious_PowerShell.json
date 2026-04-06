@@ -1,9 +1,11 @@
 {
+  "rule_id": "QR-002",
   "name": "Rule 2: Suspicious PowerShell Execution",
   "description": "Detects execution of encoded PowerShell commands often used by attackers.",
   "severity": 7,
   "enabled": true,
   "mitre_id": "T1059.001",
+  "log_source": "Microsoft-Windows-Sysmon (Event ID 1)",
   "logic": "ProcessName = 'powershell.exe' AND (CommandLine contains '-enc' OR CommandLine contains '-EncodedCommand')",
-  "log_source": "Microsoft-Windows-Sysmon (Event ID 1)"
+  "mitigation": "Investigate the decoded command and identify the source process." [cite: 9]
 }
