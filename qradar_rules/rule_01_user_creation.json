@@ -1,0 +1,13 @@
+{
+  "name": "MilliSec - New User Created",
+  "description": "Serverdə yeni istifadəçi yaradıldıqda Offense yaradır.",
+  "severity": 4,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000021 AND \"Event ID\" = 4720"
+    }
+  ],
+  "mttd_target": "5 mins",
+  "status": "enabled"
+}
