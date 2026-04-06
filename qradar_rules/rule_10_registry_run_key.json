@@ -1,0 +1,12 @@
+{
+  "name": "SOC - Registry Run Key Persistence",
+  "description": "Autorun düymələrinə edilən şübhəli dəyişiklikləri izləyir (Sysmon Event ID 13).",
+  "severity": 6,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000025 AND \"Event ID\" = 13 AND TargetObject ILIKE '%\\Run%'"
+    }
+  ],
+  "mttd_target": "15 mins"
+}
