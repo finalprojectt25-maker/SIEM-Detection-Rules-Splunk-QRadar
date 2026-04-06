@@ -1,9 +1,0 @@
-{
-  "name": "Rule 9: Windows Event Log Clearing",
-  "description": "Detects deletion or clearing of Windows Event Logs to hide attacker activities.",
-  "severity": 10,
-  "enabled": true,
-  "mitre_id": "T1070.001",
-  "logic": "EventID: (1102 OR 104) OR (Process: 'wevtutil.exe' AND CommandLine: 'cl') OR PowerShell: ('Clear-EventLog' OR 'Remove-EventLog')",
-  "log_source": "Windows Security Log / System Log"
-}
