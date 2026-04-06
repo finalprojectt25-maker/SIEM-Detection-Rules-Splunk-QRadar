@@ -1,26 +1,22 @@
 import requests
 import json
+import urllib3
 
-# Connection Details
-QRADAR_IP = "13.50.16.252"
-API_TOKEN = "9aba895b-9bee-47f4-9e63-e9b99f8ddc58" # Bura bayaq aldigin tokeni qoyacaqsan
+# Sertifikat xətalarını gizlətmək üçün
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-def deploy_rules_to_siem():
-    print(f"Connecting to QRadar at {QRADAR_IP}...")
-    
-    # Header configuration for API
+def deploy_rule(rule_data):
+    url = "https://<QRADAR_IP>/api/analytics/rules"
     headers = {
-        'SEC': API_TOKEN,
+        'SEC': 'YOUR_API_TOKEN',
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Version': '15.0' # QRadar versiyana uyğun olaraq dəyiş
     }
-
-    # In a professional scenario, this script reads files from the /Detection_Rules folder
-    # and sends them to QRadar's REST API endpoint.
     
-    # Example logic:
-    # response = requests.get(f"https://{QRADAR_IP}/api/analytics/rules", headers=headers, verify=False)
-    # print("Rules successfully synced from GitHub!")
-
-if __name__ == "__main__":
-    deploy_rules_to_siem()
+    # QRadar-da qayda yaradarkən "content" sahəsi mütləq düzgün formatda olmalıdır
+    response = requests.post(url, headers=headers, data=json.dumps(rule_data), verify=False)
+    
+    if response.status_code == 201:
+        print("Qayda uğurla əlavə edildi!")
+    else:
+        print(f"Xəta baş verdi: {response.status_code}, {response.text}")
