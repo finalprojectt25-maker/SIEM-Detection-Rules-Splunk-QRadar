@@ -1,0 +1,12 @@
+{
+  "name": "SOC - RDP External Brute Force",
+  "description": "Uzaqdan masaüstü bağlantısı üçün ardıcıl uğursuz cəhdlər.",
+  "severity": 8,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000001 AND \"Logon Type\" = 10 AND \"Event ID\" = 4625"
+    }
+  ],
+  "mttd_target": "3 mins"
+}
