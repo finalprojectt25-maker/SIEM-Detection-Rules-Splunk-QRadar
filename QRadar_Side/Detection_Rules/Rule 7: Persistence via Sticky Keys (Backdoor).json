@@ -1,9 +1,10 @@
 {
+  "rule_id": "QR-007",
   "name": "Rule 7: Sticky Keys Backdoor Detection",
   "description": "Detects replacement of accessibility tools with cmd.exe for persistence.",
   "severity": 8,
   "enabled": true,
   "mitre_id": "T1546.008",
-  "logic": "Image: ('sethc.exe' OR 'utilman.exe') AND ParentImage: 'winlogon.exe' AND Registry: 'Image File Execution Options'",
-  "log_source": "Sysmon (1) or Windows Security Log (4688)"
+  "log_source": "Sysmon (1) or Windows Security Log (4688)",
+  "logic": "Image: ('sethc.exe' OR 'utilman.exe') AND ParentImage: 'winlogon.exe' AND Registry: 'Image File Execution Options'"
 }
