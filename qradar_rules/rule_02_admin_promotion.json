@@ -1,0 +1,13 @@
+{
+  "name": "MilliSec - User Added to Admin Group",
+  "description": "İstifadəçiyə Administrator səlahiyyəti verildikdə aşkarlayır.",
+  "severity": 7,
+  "test_definitions": [
+    {
+      "apply_to": "events",
+      "expression": "qid = 5000023 AND \"Event ID\" = 4732"
+    }
+  ],
+  "mttd_target": "2 mins",
+  "status": "enabled"
+}
